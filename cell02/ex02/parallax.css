@@ -1,0 +1,45 @@
+body {
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+}
+.container {
+	width: 100vw;
+	height: 100vh;
+}
+#para1 {
+	background-image: url("/mnt/nfs/homes/aderose/Downloads/parallax.jpg");
+}
+#para2 {
+	background-image: url("/mnt/nfs/homes/aderose/Downloads/parallax2.png");
+}
+#para3 {
+	background-image: url("/mnt/nfs/homes/aderose/Downloads/parallax3.webp");
+}
+
+.parallax {
+	/* Set a specific height */
+	position: relative;
+	min-height: 100%;
+	width: auto;
+	/* Create the parallax scrolling effect */
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.parallax p {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	box-shadow: inset;
+	border-radius: 1em 15em;
+	background-color: #6C5853;
+	opacity: 0.6;
+	padding: 1%;
+	width: fit-content;
+	z-index: 999;
+}
