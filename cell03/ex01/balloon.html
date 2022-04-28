@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Balloon</title>
+		<style>
+			.container {
+				width: 100vw;
+				height: 100vh;
+				margin: auto;
+			}
+			#button {
+				margin: 0;
+				position: relative;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 200px;
+				height: 200px;
+				background-color: #FF0000;
+				border-radius: 50%;
+			}
+			
+		</style>
+		<script>
+			var i = 0;
+			const colors = ["#008000","#0000FF","#FF0000"];
+
+			function grow() {
+				const mybutton = document.getElementById("button");
+				console.log(mybutton.offsetWidth);
+				mybutton.style.width = (mybutton.offsetWidth += 10) + "px";
+				mybutton.style.height = (mybutton.offsetHeight += 10) + "px";
+				if (mybutton.style.width > '420px')
+				{
+					mybutton.style.width = '200px';
+					mybutton.style.height = '200px';
+				}
+				if (i == 3)
+					i = 0;
+				mybutton.style.backgroundColor = colors[i];
+				i++;
+			}
+
+			function shrink() {
+				const mybutton = document.getElementById("button");
+				if (mybutton.style.width >= '205px')
+				{
+					console.log(mybutton.offsetWidth);
+					if (i == -1)
+						i = 2;
+					mybutton.style.backgroundColor = colors[i];
+					mybutton.style.width = (mybutton.offsetWidth -= 5) + "px";
+					mybutton.style.height = (mybutton.offsetHeight -= 5) + "px";
+					i--;
+				}
+			}
+
+			
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div onclick="grow()" onmouseleave="shrink()" id="button"></button>
+		</div>
+	</body>
+</html>
