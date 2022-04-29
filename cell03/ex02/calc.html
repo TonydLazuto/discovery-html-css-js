@@ -18,7 +18,7 @@
 				width: 100vw;
 				height: 100vh;
 				margin: 0;
-				background-image: url(/mnt/nfs/homes/aderose/Downloads/n.jpg);
+				/* background-image: url(/mnt/nfs/homes/aderose/Downloads/n.jpg); */
 				position: relative;
 				min-height: 100%;
 				width: auto;
@@ -34,7 +34,7 @@
 				left: 50%;
 				top: 50%;
 				transform: translate(-50%, -50%);
-				width: 60%;
+				width: 50%;
 				height: fit-content;
 				display: flex;
 				flex-direction: row;
@@ -61,17 +61,58 @@
 				text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px, rgba(255,255,255,.5);
 				border-radius: 0.7em;
 			}
-			/* #button {
-				background-color: #FF0000;
-			} */
 			
 		</style>
 		<script>
-			var i = 0;
-			const colors = ["#008000","#0000FF","#FF0000"];
+			function checkError() {
+				let	strnb1 = document.getElementById('nb1').value;
+				let	strnb2 = document.getElementById('nb2').value;
 
+				nb1 = parseInt(strnb1, 10);
+				nb2 = parseInt(strnb2, 10);
+
+				if (op.value == "/" && nb2 == 0)
+				{
+					alert("Can't divide by 0");
+					console.log("Can't divide by 0");
+					return true;
+				}
+				return false;
+			}
 			function calcul() {
+				let	op = document.getElementById('op').value;
+				let	strnb1 = document.getElementById('nb1').value;
+				let	strnb2 = document.getElementById('nb2').value;
 
+				nb1 = parseInt(strnb1, 10);
+				nb2 = parseInt(strnb2, 10);
+				if (checkError() == true)
+					return ;
+				if (op == "+")
+				{
+					alert(nb1 + nb2);
+					console.log(nb1 + nb2);
+				}
+				else if (op == "-")
+				{
+					alert(nb1 - nb2);
+					console.log(nb1 - nb2);
+				}
+				else if (op == "*")
+				{
+					alert(nb1 * nb2);
+					console.log(nb1 * nb2);
+				}
+				else if (op == "/")
+				{
+					alert(nb1 / nb2);
+					console.log(nb1 / nb2);
+				}
+				else if (op == "%")
+				{
+					alert(nb1 % nb2);
+					console.log(nb1 % nb2);
+				}
 			}
 		</script>
 	</head>
@@ -80,10 +121,10 @@
 			<form method="POST" action="" id="flex_container">
 				<div class="flex_items">
 					<label for="nb1">1st Number</label><br />
-					<input type="text" id="nb1" name="nb1">
+					<input type="text" id="nb1" name="nb1" type="number" min="Number.MIN_VALUE" max="Number.MAX_VALUE" />
 				</div>
-				<div class="flex_items" id="op">
-					<select>
+				<div class="flex_items">
+					<select id="op">
 						<option value="+">+</option>
 						<option value="-">-</option>
 						<option value="*">*</option>
@@ -94,10 +135,10 @@
 				<div class="flex_items">
 					<label for="nb2">2nd Number</label>
 					<br />
-					<input type="text" id="nb2" name="nb2">
+					<input type="text" id="nb2" name="nb2" type="number" min="Number.MIN_VALUE" max="Number.MAX_VALUE" />
 				</div>
 				<div id="button">
-					<input type="button" value="Try me!" onclick="calcul()">
+					<input type="button" value="Try me!" onclick="calcul()" />
 				</div>
 
 			</form>
