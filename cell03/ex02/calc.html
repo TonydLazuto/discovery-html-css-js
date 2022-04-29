@@ -6,21 +6,63 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Calc</title>
 		<style>
-			/* .container {
+			body {
 				width: 100vw;
 				height: 100vh;
 				margin: auto;
+				font-size: x-large;
+				font-family: Georgia, serif;
+				font-weight: bolder;
 			}
-			#button {
+			.container {
+				width: 100vw;
+				height: 100vh;
 				margin: 0;
+				background-image: url(/mnt/nfs/homes/aderose/Downloads/n.jpg);
 				position: relative;
-				top: 50%;
+				min-height: 100%;
+				width: auto;
+				background-attachment: fixed;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+
+			#flex_container {
+				position: relative;
+				margin: 0;
 				left: 50%;
+				top: 50%;
 				transform: translate(-50%, -50%);
-				width: 200px;
-				height: 200px;
+				width: 60%;
+				height: fit-content;
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+			.flex_items {
+				height:fit-content;
+				margin-left: 2em;
+				margin-right: 2em;
+				text-align: center;
+			}
+
+			input, select {
+				padding: 10px;
+				border: 0;
+				border-radius: 0.7em;
+				box-shadow: 0 0 15px 4px rgba(111, 87, 87, 0.06);
+				opacity: 0.5;
+			}
+
+			label {
+				color: #CFE2F3;
+				text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px, rgba(255,255,255,.5);
+				border-radius: 0.7em;
+			}
+			/* #button {
 				background-color: #FF0000;
-				border-radius: 50%;
 			} */
 			
 		</style>
@@ -31,27 +73,32 @@
 			function calcul() {
 
 			}
-
-			function shrink() {
-				const mybutton = document.getElementById("button");
-				if (mybutton.style.width >= '205px')
-				{
-					console.log(mybutton.offsetWidth);
-					if (i == -1)
-						i = 2;
-					mybutton.style.backgroundColor = colors[i];
-					mybutton.style.width = (mybutton.offsetWidth -= 5) + "px";
-					mybutton.style.height = (mybutton.offsetHeight -= 5) + "px";
-					i--;
-				}
-			}
-
-			
 		</script>
 	</head>
 	<body>
 		<div class="container">
-			<form method="POST" action="">
+			<form method="POST" action="" id="flex_container">
+				<div class="flex_items">
+					<label for="nb1">1st Number</label><br />
+					<input type="text" id="nb1" name="nb1">
+				</div>
+				<div class="flex_items" id="op">
+					<select>
+						<option value="+">+</option>
+						<option value="-">-</option>
+						<option value="*">*</option>
+						<option value="/">/</option>
+						<option value="%">%</option>
+					</select>
+				</div>
+				<div class="flex_items">
+					<label for="nb2">2nd Number</label>
+					<br />
+					<input type="text" id="nb2" name="nb2">
+				</div>
+				<div id="button">
+					<input type="button" value="Try me!" onclick="calcul()">
+				</div>
 
 			</form>
 		</div>

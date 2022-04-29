@@ -49,21 +49,22 @@
 				if (mybutton.style.width >= '205px')
 				{
 					console.log(mybutton.offsetWidth);
+					if (i == 3)
+						i = 0;
 					if (i == -1)
 						i = 2;
+					console.log(i);
 					mybutton.style.backgroundColor = colors[i];
 					mybutton.style.width = (mybutton.offsetWidth -= 5) + "px";
 					mybutton.style.height = (mybutton.offsetHeight -= 5) + "px";
 					i--;
 				}
 			}
-
-			
 		</script>
 	</head>
 	<body>
 		<div class="container">
-			<div onclick="grow()" onmouseleave="shrink()" id="button"></button>
+			<div onclick="grow()" onmouseleave="shrink()" id="button"></div>
 		</div>
 	</body>
 </html>
